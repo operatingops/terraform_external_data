@@ -41,12 +41,14 @@ The wrapped function must expect its first positional argument to be a dictionar
         for i in range(3):
             count += 1
 
-        # Terraform requires the values you return be strings, so terraform_external_data will error if they aren't.
+        # Terraform requires the values you return be strings,
+        # so terraform_external_data will error if they aren't.
         return {query['thing_to_count']: str(count)}
 
     if __name__ == '__main__':
-        # Always protect Python scripts from import side effects with a condition to check the __name__.
-        # Not specifically necessary for terraform_external_data, but it's a best practice in general.
+        # Always protect Python scripts from import side effects with
+        # a condition to check the __name__. Not specifically necessary
+        # for terraform_external_data, but it's a best practice in general.
         get_cool_data()
     ```
 
@@ -61,7 +63,8 @@ The wrapped function must expect its first positional argument to be a dictionar
       }
     }
 
-    # Reference the data like any terraform var. This example uses an output so it doesn't modify infrastructure.
+    # Reference the data like any terraform var. This example uses an
+    # output so it doesn't modify infrastructure.
     output "cars_count" {
       value = "${data.external.cars_count.result.cars}"
     }
