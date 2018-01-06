@@ -6,6 +6,7 @@ https://www.terraform.io/docs/providers/external/data_source.html
 from __future__ import print_function
 import json
 import sys
+from functools import wraps
 
 def error(message):
     """
@@ -37,6 +38,7 @@ def terraform_external_data(function):
 
     The wrapped function must expect its first positional argument to be a dictionary of the query data.
     """
+    @wraps(function)
     def wrapper(*args, **kwargs):
         query = json.loads(sys.stdin.read())
         validate(query)
