@@ -7,6 +7,7 @@ from __future__ import print_function
 import json
 import sys
 from functools import wraps
+from past.builtins import basestring
 
 def error(message):
     """
@@ -23,11 +24,7 @@ def validate(data):
     if not isinstance(data, dict):
         error('Data must be a dictionary.')
     for value in data.values():
-        if sys.version_info[0] < 3:
-            valid = isinstance(value, basestring)
-        else:
-            valid = isinstance(value, str)
-        if not valid:
+        if not isinstance(value, basestring):
             error('Values must be strings.')
 
 

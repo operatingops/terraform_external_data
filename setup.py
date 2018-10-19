@@ -13,5 +13,6 @@ setup(
     long_description=readme(),
     packages=['terraform_external_data'],
     url='https://github.com/operatingops/terraform_external_data',
+    install_requires=['future==0.16.0'],
     extras_require={'test': ['tox==3.5.2']}
 )
