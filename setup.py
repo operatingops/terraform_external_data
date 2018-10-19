@@ -12,5 +12,6 @@ setup(
     description="Provides a decorator that implements terraform's external program protocol for data sources.",
     long_description=readme(),
     packages=['terraform_external_data'],
-    url='https://github.com/operatingops/terraform_external_data'
+    url='https://github.com/operatingops/terraform_external_data',
+    extras_require={'test': ['tox==3.5.2']}
 )
