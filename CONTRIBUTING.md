@@ -25,6 +25,7 @@ This guide based on the one in [factory_girl_rails v4.8.0][source]. Thanks Thoug
 
 1. Test your change:
    1. `tox`
+      1. If you're having trouble getting all the right Python versions installed, I recommend [pyenv][pyenv]. Here's how I [set it up on OS X][python-osx].
    1. Each Python version should apply terraform and output a random number of cars from 0-9.
       (This apply is a no-op: it only collects and outputs fake data.)
 
@@ -65,6 +66,8 @@ Like for pull requests, remember that we don't get paid so there's no SLA. We'll
 [home]: https://operatingops.org
 [homebrew]: https://brew.sh
 [pr]: https://help.github.com/articles/creating-a-pull-request/
+[pyenv]: https://github.com/pyenv/pyenv
+[python-osx]: https://operatingops.org/2018/02/04/python-on-mac-one-of-the-good-ways/
 [rebase]: https://help.github.com/articles/about-git-rebase/
 [source]: https://github.com/thoughtbot/factory_girl_rails/blob/v4.8.0/CONTRIBUTING.md
 [style]: https://github.com/operatingops/simple_style/blob/v0.1.1/SIMPLE_STYLE.md
