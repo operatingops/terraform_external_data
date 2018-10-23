@@ -7,6 +7,11 @@ def readme():
 setup(
     author_email='adam@operatingops.org',
     author='Adam Burns',
+    classifiers=[
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7"
+    ],
     description="Provides a decorator that implements terraform's external program protocol for data sources.",
     extras_require={'test': ['tox==3.5.2']},
     install_requires=['future==0.16.0'],
