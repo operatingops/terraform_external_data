@@ -20,5 +20,5 @@ setup(
     name='terraform_external_data',
     packages=['terraform_external_data'],
     url='https://github.com/operatingops/terraform_external_data',
-    version='0.0.5'
+    version='0.0.6'
 )
