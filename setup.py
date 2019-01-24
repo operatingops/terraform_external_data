@@ -15,7 +15,7 @@ setup(
     ],
     description="Provides a decorator that implements terraform's external program protocol for data sources.",
     extras_require={'test': ['tox==3.5.2']},
-    install_requires=['future==0.16.0'],
+    install_requires=['future>=0.16.0'],
     long_description=readme(),
     name='terraform_external_data',
     packages=['terraform_external_data'],
