@@ -1,5 +1,5 @@
 provider "external" {
-  version = "~> 1.0"
+  version = "~> 1.2"
 }
 
 data "external" "cars_count" {
