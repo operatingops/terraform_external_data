@@ -13,5 +13,5 @@ data "external" "cars_count" {
 
 # Reference the data like any terraform var. This example uses an output so it doesn't modify infrastructure.
 output "cars_count" {
-  value = "${data.external.cars_count.result.cars}"
+  value = data.external.cars_count.result.cars
 }
