@@ -29,6 +29,8 @@ This guide based on the one in [factory_girl_rails v4.8.0][source]. Thanks Thoug
    1. Each Python version should apply terraform and output a random number of cars from 0-9.
       (This apply is a no-op: it only collects and outputs fake data.)
 
+1. [Bump the version](https://semver.org/spec/v2.0.0.html) in setup.py.
+
 1. Push to your fork.
 
    ```shell
