@@ -17,7 +17,7 @@ This guide based on the one in [factory_girl_rails v4.8.0][source]. Thanks Thoug
 1. Set up your environment:
    1. Install terraform. It is available in [Homebew][homebrew] and [directly from HashiCorp][hashi-downloads].
    1. `terraform init test/terraform`
-   1. `python3 venv ~/path/to/venv`
+   1. `python venv ~/path/to/venv`
    1. `source ~/path/to/venv/bin/activate`
    1. `pip install -e .[test]`
 
