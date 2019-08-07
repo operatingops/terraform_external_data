@@ -3,11 +3,9 @@ Provides a decorator that implements terraform's external program protocol for d
 https://www.terraform.io/docs/providers/external/data_source.html
 """
 
-from __future__ import print_function
 import json
 import sys
 from functools import wraps
-from past.builtins import basestring
 
 def error(message):
     """
@@ -24,7 +22,7 @@ def validate(data):
     if not isinstance(data, dict):
         error('Data must be a dictionary.')
     for value in data.values():
-        if not isinstance(value, basestring):
+        if not isinstance(value, str):
             error('Values must be strings.')
 
 
@@ -43,7 +41,7 @@ def terraform_external_data(function):
             result = function(query, *args, **kwargs)
         except Exception as e:
             # Terraform wants one-line errors so we catch all exceptions and trim down to just the message (no trace).
-            error('{}: {}'.format(type(e).__name__, e))
+            error(f'{type(e).__name__}: {e}')
         validate(result)
         sys.stdout.write(json.dumps(result))
     return wrapper

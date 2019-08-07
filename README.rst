@@ -20,12 +20,12 @@ See the `contributing guide`_ for instructions on developing and running tests.
 Example Usage
 =============
 
-1. As always, create and activate a venv_ (Python 3) or virtualenv_ (Python 2).
+1. As always, create and activate a venv_.
 
    .. code:: bash
 
-      python3 -m venv env3
-      source env3/bin/activate
+      python -m venv env
+      source env/bin/activate
 
 2. Install `terraform_external_data` in the env.
 
