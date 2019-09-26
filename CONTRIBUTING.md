@@ -81,4 +81,4 @@ Like for pull requests, remember that we don't get paid so there's no SLA. We'll
 [python-osx]: https://operatingops.org/2018/02/04/python-on-mac-one-of-the-good-ways/
 [rebase]: https://help.github.com/articles/about-git-rebase/
 [source]: https://github.com/thoughtbot/factory_girl_rails/blob/v4.8.0/CONTRIBUTING.md
-[style]: https://github.com/operatingops/simple_style/blob/v0.1.1/SIMPLE_STYLE.md
+[style]: https://github.com/operatingops/simple_style/blob/v0.2.0/SIMPLE_STYLE.md
