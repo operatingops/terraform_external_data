@@ -17,6 +17,8 @@ The wrapped function must expect its first positional argument to be a dictionar
 
 See the `contributing guide`_ for instructions on developing and running tests.
 
+Need help with this? I'm also `available to consult`_.
+
 Example Usage
 =============
 
@@ -81,6 +83,7 @@ Example Usage
       }
 
 
+.. _available to consult: https://operatingops.org/hire-adam/
 .. _external program protocol: https://www.terraform.io/docs/providers/external/data_source.html#external-program-protocol
 .. _contributing guide: https://github.com/operatingops/terraform_external_data/blob/master/CONTRIBUTING.md
 .. _venv: https://docs.python.org/3/library/venv.html
