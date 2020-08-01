@@ -15,7 +15,7 @@ setup(
         "Programming Language :: Python :: 3 :: Only"
     ],
     description="Provides a decorator that implements terraform's external program protocol for data sources.",
-    extras_require={'test': ['tox >=3.13, <3.14']},
+    extras_require={'test': ['tox >=3, <4']},
     long_description=readme(),
     name='terraform_external_data',
     packages=['terraform_external_data'],

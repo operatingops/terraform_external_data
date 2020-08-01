@@ -8,7 +8,7 @@ def count_things(query):
     """
     Dummy function that simulates data collection with a count.
     """
-    return {query['thing_to_count']: str(random.randint(0, 9))}
+    return {query['thing_to_count']: str(random.randint(0, 4))}
 
 
 if __name__ == '__main__':

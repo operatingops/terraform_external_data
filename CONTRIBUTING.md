@@ -25,7 +25,6 @@ We'd love for you to contribute, and we want you to be you while you do it. This
 
 1. Set up your environment:
    1. Install terraform. It is available in [Homebew][homebrew] and [directly from HashiCorp][hashi-downloads].
-   1. `terraform init test/terraform`
    1. `python venv ~/path/to/venv`
    1. `source ~/path/to/venv/bin/activate`
    1. `pip install -e .[test]`
@@ -33,10 +32,12 @@ We'd love for you to contribute, and we want you to be you while you do it. This
 1. Make your change.
 
 1. Test your change:
-   1. `tox`
-      1. If you're having trouble getting all the right Python versions installed, I recommend [pyenv][pyenv]. Here's how I [set it up on OS X][python-osx].
-   1. Each Python version should apply terraform and output a random number of cars from 0-9.
-      (This apply is a no-op: it only collects and outputs fake data.)
+
+   `tox`
+
+   If you're having trouble getting all the right Python versions installed, I recommend [pyenv][pyenv]. Here's how I [set it up on OS X][python-osx]. You may need to run a command similar to this to get tox to detect the versions it installs:
+
+   `pyenv local 3.8.5 3.7.8 3.6.11`
 
 1. [Bump the version](https://semver.org/spec/v2.0.0.html) in setup.py.
 
