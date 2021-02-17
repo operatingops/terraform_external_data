@@ -83,7 +83,7 @@ Example Usage
       }
 
 
-.. _available to consult: https://operatingops.org/hire
+.. _available to consult: https://operatingops.com/hire
 .. _external program protocol: https://www.terraform.io/docs/providers/external/data_source.html#external-program-protocol
 .. _contributing guide: https://github.com/operatingops/terraform_external_data/blob/master/CONTRIBUTING.md
 .. _venv: https://docs.python.org/3/library/venv.html
