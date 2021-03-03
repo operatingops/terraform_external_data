@@ -1,0 +1,93 @@
+# This pipeline builds an artifact in the latest version of Python suppported
+# by terraform_external_data, then tests that artifact in all supported
+# versions.
+
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include:
+    - '*'
+
+# When tags are pushed, SourceBranchName is the tag name. This projects uses
+# semver, so its tags are delimited with dots. Separating the revision with a
+# dash ensures it doesn't look like part of the semantic version:
+# operatingops.terraform_external_data.1.2.3-67
+name: $(Build.DefinitionName).$(SourceBranchName)-$(Rev:r)
+jobs:
+- job: Build
+  pool:
+    vmImage: ubuntu-20.04
+  variables:
+    python.version: '3.8'
+  workspace:
+    clean: outputs
+  steps:
+  - task: UsePythonVersion@0
+    displayName: Use Python $(python.version)
+    inputs:
+      versionSpec: $(python.version)
+  - pwsh: |
+      $projectVersion = python setup.py --version
+      $ref = '$(Build.SourceBranch)'.Split('/')
+      if ($ref[1] -eq 'tags') {
+          if ($ref[2] -ne $projectVersion) {
+              throw 'The tag that triggered this build did not match the project version.'
+          }
+      }
+      Write-Host "##vso[task.setvariable variable=projectVersion]$projectVersion"
+    displayName: Check version
+  - pwsh: python -m pip install --upgrade pip setuptools wheel
+    displayName: Install build tools
+  - pwsh: python setup.py bdist_wheel --dist-dir $(Build.BinariesDirectory)
+    displayName: Build wheel
+  - publish: $(Build.BinariesDirectory)/terraform_external_data-$(projectVersion)-py3-none-any.whl
+    displayName: Publish wheel
+    artifact: wheel
+  - pwsh: python setup.py sdist --dist-dir $(Build.BinariesDirectory)
+    displayName: Build source
+  - publish: $(Build.BinariesDirectory)/terraform_external_data-$(projectVersion).tar.gz
+    displayName: Publish source
+    artifact: source
+
+- job: Test
+  dependsOn: Build
+  pool:
+    vmImage: ubuntu-20.04
+  strategy:
+    matrix:
+      Python36:
+        python.version: '3.6'
+      Python37:
+        python.version: '3.7'
+      Python38:
+        python.version: '3.8'
+  steps:
+  - download: current
+    displayName: Download wheel
+    artifact: wheel
+  - task: UsePythonVersion@0
+    displayName: Use Python $(python.version)
+    inputs:
+      versionSpec: $(python.version)
+  - pwsh: pip install tox
+    displayName: Install tox
+
+    # The ubuntu images come with terraform, but only one version. For example:
+    # https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md#tools
+    # Tfenv lets us dynamically install whatever version is set in this repo.
+  - pwsh: brew install tfenv
+    displayName: Install tfenv
+  - pwsh: tfenv install min-required
+    workingDirectory: $(build.sourcesDirectory)/examples
+    displayName: Install minimum required Terraform version
+  - pwsh: tfenv use min-required
+    workingDirectory: $(build.sourcesDirectory)/examples
+    displayName: Use minimum required Terraform version
+
+    # In tox, "py" means, "The current Python version tox is using":
+    # https://tox.readthedocs.io/en/latest/example/basic.html#a-simple-tox-ini-default-environments
+    # https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python?view=azure-devops#run-tests-with-tox
+  - pwsh: tox --installpkg $(Pipeline.Workspace)/wheel/terraform_external_data-*-py3-none-any.whl -e py,terratest
+    displayName: Run tox

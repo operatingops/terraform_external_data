@@ -1,6 +1,9 @@
 About
 =====
 
+.. image:: https://dev.azure.com/operatingops/terraform_external_data/_apis/build/status/operatingops.terraform_external_data
+    :target: https://dev.azure.com/operatingops/terraform_external_data/_build/latest?definitionId=1
+
 Provides a decorator that implements terraform's `external program protocol`_ for data sources.
 
 * Reads in JSON from :code:`stdin`.
