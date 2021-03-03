@@ -1,13 +1,22 @@
 package test
 
 import (
+	"os/exec"
+	"strings"
 	"testing"
 
+	"github.com/gruntwork-io/terratest/modules/logger"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestTerraformExternalData(t *testing.T) {
+	pythonVersion, error := exec.Command("python", "--version").Output()
+	if error != nil {
+		logger.Log(t, error)
+	}
+	logger.Log(t, strings.TrimSuffix(string(pythonVersion), "\n"))
+
 	t.Parallel()
 	terraformOptions := &terraform.Options{
 		TerraformDir: "../../examples",

@@ -89,5 +89,5 @@ jobs:
     # In tox, "py" means, "The current Python version tox is using":
     # https://tox.readthedocs.io/en/latest/example/basic.html#a-simple-tox-ini-default-environments
     # https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python?view=azure-devops#run-tests-with-tox
-  - pwsh: tox --installpkg $(Pipeline.Workspace)/wheel/terraform_external_data-*-py3-none-any.whl -e py,terratest
+  - pwsh: tox --installpkg $(Pipeline.Workspace)/wheel/terraform_external_data-*-py3-none-any.whl -e py
     displayName: Run tox
