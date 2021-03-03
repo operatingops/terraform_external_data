@@ -39,7 +39,7 @@ We'd love for you to contribute, and we want you to be you while you do it. This
 
    `pyenv local 3.8.5 3.7.8 3.6.11`
 
-1. [Bump the version](https://semver.org/spec/v2.0.0.html) in setup.py.
+1. Increase the version in setup.py. Follow [semver][semver].
 
 1. Push to your fork.
 
@@ -81,5 +81,6 @@ Like for pull requests, remember that we don't get paid so there's no SLA. We'll
 [pyenv]: https://github.com/pyenv/pyenv
 [python-osx]: https://operatingops.org/2018/02/04/python-on-mac-one-of-the-good-ways/
 [rebase]: https://help.github.com/articles/about-git-rebase/
+[semver]: https://semver.org/spec/v2.0.0.html
 [source]: https://github.com/thoughtbot/factory_girl_rails/blob/v4.8.0/CONTRIBUTING.md
 [style]: https://github.com/operatingops/simple_style/blob/v0.2.1/SIMPLE_STYLE.md
