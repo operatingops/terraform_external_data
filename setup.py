@@ -5,8 +5,8 @@ def readme():
         return f.read()
 
 setup(
-    author_email='adam@operatingops.org',
-    author='Adam Burns',
+    author_email='contact@operatingops.com',
+    author='Operating Ops, LLC',
     license='MIT',
     classifiers=[
         "License :: OSI Approved :: MIT License",
