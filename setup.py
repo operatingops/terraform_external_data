@@ -5,8 +5,8 @@ def readme():
         return f.read()
 
 setup(
-    author_email='adam@operatingops.org',
-    author='Adam Burns',
+    author_email='contact@operatingops.com',
+    author='Operating Ops, LLC',
     license='MIT',
     classifiers=[
         "License :: OSI Approved :: MIT License",
@@ -21,5 +21,5 @@ setup(
     name='terraform_external_data',
     packages=['terraform_external_data'],
     url='https://github.com/operatingops/terraform_external_data',
-    version='1.1.3'
+    version='1.1.4'
 )
